@@ -1,32 +1,35 @@
 import random
-def get_choices():
-        player_choice = input("enter a choice i.e. rock, paper or scissor")
-        options = ["rock", "paper", "scissor"]
-        computer_choice = random.choice(options)
-        choices = {"player": player_choice , "computer": computer_choice}
-        return choices
-        
-def check_win(player, computer):
-    print(f"you chose {player} and computer chose {computer}")
-    if player == computer:
-        return "its a tie!"
-    elif player == "rock":
-        if computer == "scissor":
-            return "you win"
-        else:
-            return "you lose"
-    elif player ==" paper":
-        if computer == "rock":
-            return "you win"
-        else:
-            return "you lose"
-    elif player == "scissor":
-        if computer == "paper":
-            return "you win"
-        else:
-            return "you lose"
-            
-            
-choices = get_choices()
-result = check_win(choices["player"], choices["computer"])
-print (result)
+
+def play_rock_paper_scissors():
+    user_choice = input("Choose rock, paper, or scissors: ").lower()
+    computer_choice = random.choice(["rock", "paper", "scissors"])
+
+    print(f"You chose: {user_choice}")
+    print(f"Computer chose: {computer_choice}")
+
+    match user_choice:
+        case "rock":
+            if computer_choice == "scissors":
+                print("You win!")
+            elif computer_choice == "paper":
+                print("You lose!")
+            else:
+                print("It's a tie!")
+        case "paper":
+            if computer_choice == "rock":
+                print("You win!")
+            elif computer_choice == "scissors":
+                print("You lose!")
+            else:
+                print("It's a tie!")
+        case "scissors":
+            if computer_choice == "paper":
+                print("You win!")
+            elif computer_choice == "rock":
+                print("You lose!")
+            else:
+                print("It's a tie!")
+        case _:
+            print("Invalid choice!")
+
+play_rock_paper_scissors()
